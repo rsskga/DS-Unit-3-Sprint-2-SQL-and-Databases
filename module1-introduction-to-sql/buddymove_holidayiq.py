@@ -49,11 +49,11 @@ df.to_sql("review", con=db, if_exists="replace", index=False,
                  "shopping": "INTEGER",
                  "picnic": "INTEGER"})
 
-rows = len(c.execute("SELECT * FROM review").fetchall())
+rows = c.execute("SELECT COUNT() FROM review").fetchone()
 print(f"\nThere are {rows} rows.")
 
-sql = "SELECT user_id FROM review WHERE nature >= 100 AND shopping >= 100"
-users = len(c.execute(sql).fetchall())
+sql = "SELECT COUNT() FROM review WHERE nature >= 100 AND shopping >= 100"
+users = c.execute(sql).fetchone()
 print(f"\nThere are {users} users who have reviewed 100+ Nature & Shopping.")
 
 query = "SELECT AVG(sports), " \
