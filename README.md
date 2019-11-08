@@ -13,3 +13,8 @@ Grant role_1 permission to set its role as role_2:
 ```postgresql
 GRANT role_2 TO role_1;
 ```
+
+Set role for the current session to the new_role  
+```sql
+SET ROLE new_role;
+```
